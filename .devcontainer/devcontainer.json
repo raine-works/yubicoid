@@ -1,0 +1,28 @@
+{
+  "name": "YubicoID Workspace",
+  "dockerComposeFile": "docker-compose.yaml",
+  "service": "workspace",
+  "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
+  "features": {
+    "ghcr.io/raine-works/devcontainer-features/deno:1": { "version": "2.3.5" },
+    "ghcr.io/devcontainers/features/github-cli:1": {}
+  },
+  "mounts": [
+    "source=${localEnv:HOME}/.config/gh,target=/home/vscode/.config/gh,type=bind"
+  ],
+  "containerEnv": {
+    "NODE_ENV": "development",
+    "TZ": "UTC"
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "denoland.vscode-deno",
+        "mhutchie.git-graph",
+        "waderyan.gitblame",
+        "yoavbls.pretty-ts-errors",
+        "biomejs.biome"
+      ]
+    }
+  }
+}
